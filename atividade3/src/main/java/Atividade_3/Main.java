@@ -2,22 +2,15 @@ package Atividade_3;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Siglas dos Estados: " + EstadosBrasil.getEstadosAbreviados());
-        System.out.println("Nomes dos Estados: " + EstadosBrasil.getEstadosCompletos());
+        LockFreeQueue<Integer> queue = new LockFreeQueue<>();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
 
-        String siglaSP = "SP";
-        System.out.println("Nome do Estado '" + siglaSP + "': " + EstadosBrasil.getEstadoPorSigla(siglaSP));
-
-        String estadoSP = "São Paulo";
-        System.out.println("Sigla do Estado '" + estadoSP + "': " + EstadosBrasil.getSiglaPorEstado(estadoSP));
-
-        String regiaoSudeste = "Sudeste";
-        System.out.println("Estados da Região " + regiaoSudeste + ": " + EstadosBrasil.getEstadosPorRegiao(regiaoSudeste));
-
-        String regiaoNordeste = "Nordeste";
-        System.out.println("Estados da Região " + regiaoNordeste + ": " + EstadosBrasil.getEstadosPorRegiao(regiaoNordeste));
-
-        String regiaoInvalida = "Oeste";
-        System.out.println("Estados da Região " + regiaoInvalida + ": " + EstadosBrasil.getEstadosPorRegiao(regiaoInvalida));
+        System.out.println(queue.dequeue()); // 1
+        System.out.println(queue.dequeue()); // 2
+        System.out.println(queue.dequeue()); // 3
+        System.out.println(queue.dequeue()); // null
     }
 }
+
